@@ -1,0 +1,35 @@
+入口: https://news.qq.com/
+
+数据请求: Ajax
+请求结构: https://pacaio.match.qq.com/irs/rcd?cid=137&token=d0f13d594edfc180f5bf6b845456f3ea&id=&ext=top&page=1&expIds=20200730A0HXHM|20200205004970|20200730V0Y1SR|20200730A0RW69|20200730A0V2EV|20200730V0V8IL|20200730A0UWZY|20200711004152|20200730V0HMMD|20200730A0T6CX&callback=__jp3
+请求方式: GET
+base_url: https://pacaio.match.qq.com/irs/rcd?
+请求参数拆分：
+    cid: 可变固定参数,这里取137
+    token: 同cid
+    ext: top                // 新闻类别
+    page: 页码，自定义      // 从1开始
+    expld: data中新闻的html名
+    callback: __jp\d        // 从3开始
+
+每条请求的json数据包含10条新闻,
+{
+    ...
+    data: [{news0}, ..,{news9}]
+    ...
+}
+
+备注：
+采用类似数据加载的子网站：
+    腾讯军事：https://new.qq.com/ch/milite/
+    腾讯图片：https://new.qq.com/ch/photo/
+    腾讯娱乐：https://new.qq.com/ch/ent/
+    腾讯财经：https://new.qq.com/ch/finance/
+    腾讯科技：https://new.qq.com/ch/tech/
+    腾讯时尚：https://new.qq.com/ch/fashion/
+    腾讯教育：https://new.qq.com/ch/edu/
+    腾讯文化：https://new.qq.com/ch/cul/
+    腾讯星座：https://new.qq.com/ch/astro/
+    腾讯游戏：https://new.qq.com/ch/games/
+    腾讯历史：https://new.qq.com/ch/history/
+

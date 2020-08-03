@@ -1,0 +1,24 @@
+# 详情页的通用DOM结构
+..
+    div .LEFT
+        // 标题
+        <h1>title</h1>
+        div ."content clearfix"
+            // 时间
+            div #LeftTool .LeftTool
+                div ."year through"
+                div .md
+                div .time
+                ...
+            // 正文(包括介绍,插图,媒体插件)
+            div .content-article
+                div .introduction
+                p
+                ...
+        div .Comment
+        div .Recomend
+
+https://pacaio.match.qq.com/openapi/getQQNewsSpecialListItems?id=SPO2020031202523000&callback=getSpecialNews
+https://pacaio.match.qq.com/openapi/getQQNewsSpecialListItems?id=FIN2020051202624800&callback=getSpecialNews
+
+https://new.qq.com/zt/template/?id=FIN2020071301213100
