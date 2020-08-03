@@ -4,7 +4,7 @@ Crawl news on news.qq.com based on scrapy
 # Crawling Ideas
 ## 1. Analysis the method of loading Index page's data, we can find it in JS files at Network Controller in explorer.
 * Request urls shape like this: https://pacaio.match.qq.com/irs/rcd?...
-* We can construct the url above to get the js data
+* We can construct the request using url above to get the js data.
 * Construct the start_requests with these urls, yield index_info item by the way.
 
 ## 2. Parse the response of Index Page, get urls which direct to Detail page.
