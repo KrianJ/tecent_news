@@ -27,4 +27,3 @@ class MongoPipeline(object):
             mongo_db=crawler.settings.get('MONGO_DB'),
         )
 
-

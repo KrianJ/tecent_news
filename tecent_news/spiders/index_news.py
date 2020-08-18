@@ -7,8 +7,10 @@ import json
 import re
 import requests
 
+from scrapy_redis.spiders import RedisSpider
 
-class IndexNewsSpider(scrapy.Spider):
+
+class IndexNewsSpider(RedisSpider):
     name = 'index_news'
     allowed_domains = ['news.qq.com/']
     start_urls = ['https://news.qq.com//']

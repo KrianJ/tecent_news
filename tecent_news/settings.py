@@ -1,17 +1,17 @@
-# Scrapy settings for tecent_news project
-#
-# For simplicity, this file contains only settings considered important or
-# commonly used. You can find more settings consulting the documentation:
-#
-#     https://docs.scrapy.org/en/latest/topics/settings.html
-#     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 BOT_NAME = 'tecent_news'
 
 SPIDER_MODULES = ['tecent_news.spiders']
 NEWSPIDER_MODULE = 'tecent_news.spiders'
 
+# Enables scheduling storing requests queue in redis.
+SCHEDULER = 'scrapy_redis.scheduler.Scheduler'
+# # Ensure all spiders share same duplicates filter through redis.
+DUPEFILTER_CLASS = 'scrapy_redis.dupefilter.RFPDupeFilter'
+# 请求队列规则
+SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queue.SpiderPriorityQueue'
+# 在redis中保持scrapy-redis用到的各个队列，从而允许暂停和暂停后恢复，也就是不清理redis queues
+SCHEDULER_PERSIST = True
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36'
@@ -20,7 +20,7 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+# CONCURRENT_REQUESTS = 32
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -64,7 +64,8 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'tecent_news.pipelines.MongoPipeline': 300,
+    'tecent_news.pipelines.MongoPipeline': 300,
+    # 'scrapy_redis.pipelines.RedisPipeline': 400
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -92,6 +93,8 @@ ITEM_PIPELINES = {
 EXT = ['top', 'milite_pc', 'picture', 'ent', 'finance', 'tech', 'fashion', 'edu', 'cul', 'astro', 'history']
 PAGE = 250
 # MongoDB参数
-MONGO_URI = 'localhost'
+MONGO_URI = '192.168.1.3'
 MONGO_PORT = 27017
 MONGO_DB = 'TENCENT_NEWS'
+# Redis
+REDIS_URL = "redis://@192.168.32.128:6379"
