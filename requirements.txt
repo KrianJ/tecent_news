@@ -75,7 +75,7 @@ tornado==4.5.3
 Twisted==20.3.0
 typing-extensions==3.7.4.2
 u-msgpack-python==2.6.0
-urllib3==1.25.6
+urllib3==1.25.8
 w3lib==1.22.0
 webencodings==0.5.1
 Werkzeug==0.16.1
