@@ -14,7 +14,7 @@ Click==7.0
 colorama==0.4.3
 constantly==15.1.0
 contextvars==2.4
-cookiecutter==1.6.0
+cookiecutter==2.1.1
 cookiejar==0.0.2
 cryptography==2.9.2
 cssselect==1.1.0
